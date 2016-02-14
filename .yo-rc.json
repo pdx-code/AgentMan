@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "enque",
+    "style": "less",
+    "postcss": true
+  }
+}
