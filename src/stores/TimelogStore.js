@@ -1,0 +1,257 @@
+import alt from 'components/Dispatcher';
+// var test_timelogs = require('../sources/timelogs');
+var TimelogActions = require('../actions/TimelogActions');
+
+export class TimelogStore {
+
+  constructor() {
+    this.timelog_data = {'page': 1};
+    this.current_timelogs = [
+      {
+        'timelog_id' : '7522',
+        'subject_type' : 'action',
+        'project_id' : '566',
+        'action_id' : '10547',
+        'ticket_id' : '0',
+        'client_userid' : '192',
+        'owner_adminid' : '1',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 17:45:14',
+        'date_modified' : '2016-02-19 19:26:34',
+        'timelog_note' : 'migration, testing - finished with checkout success but redirect error will review monday',
+        'timelog_start' : '2016-02-19 17:45:14',
+        'timelog_stop' : '2016-02-19 19:26:34',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '6080',
+        'timelog_billable' : '1',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '1h 41m'
+      }
+    ];
+
+    this.timelogs = [
+        {
+        'timelog_id' : '7523',
+        'subject_type' : 'action',
+        'project_id' : '566',
+        'action_id' : '10549',
+        'ticket_id' : '0',
+        'client_userid' : '192',
+        'owner_adminid' : '20',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 19:02:26',
+        'date_modified' : '2016-02-19 19:17:45',
+        'timelog_note' : '',
+        'timelog_start' : '2016-02-19 19:02:26',
+        'timelog_stop' : '2016-02-19 19:17:45',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '919',
+        'timelog_billable' : '1',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '15m'
+        },
+        {
+        'timelog_id' : '7522',
+        'subject_type' : 'action',
+        'project_id' : '566',
+        'action_id' : '10547',
+        'ticket_id' : '0',
+        'client_userid' : '192',
+        'owner_adminid' : '1',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 17:45:14',
+        'date_modified' : '2016-02-19 19:26:34',
+        'timelog_note' : 'migration, testing - finished with checkout success but redirect error will review monday',
+        'timelog_start' : '2016-02-19 17:45:14',
+        'timelog_stop' : '2016-02-19 19:26:34',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '6080',
+        'timelog_billable' : '1',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '1h 41m'
+        },
+        {
+        'timelog_id' : '7521',
+        'subject_type' : 'action',
+        'project_id' : '427',
+        'action_id' : '10616',
+        'ticket_id' : '0',
+        'client_userid' : '56',
+        'owner_adminid' : '1',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 16:54:08',
+        'date_modified' : '2016-02-19 17:45:18',
+        'timelog_note' : '',
+        'timelog_start' : '2016-02-19 16:54:08',
+        'timelog_stop' : '2016-02-19 17:45:18',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '3070',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '51m'
+        },
+        {
+        'timelog_id' : '7520',
+        'subject_type' : 'action',
+        'project_id' : '566',
+        'action_id' : '10547',
+        'ticket_id' : '0',
+        'client_userid' : '192',
+        'owner_adminid' : '20',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 16:30:25',
+        'date_modified' : '2016-02-19 16:45:26',
+        'timelog_note' : 'got lost in the weeds trying to compare and see how to square the difference. Ask hunt instead.',
+        'timelog_start' : '2016-02-19 16:30:00',
+        'timelog_stop' : '2016-02-19 16:44:08',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '848',
+        'timelog_billable' : '1',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '14m'
+        },
+        {
+        'timelog_id' : '7519',
+        'subject_type' : 'ticket',
+        'project_id' : '0',
+        'action_id' : '0',
+        'ticket_id' : '6870',
+        'client_userid' : '683',
+        'owner_adminid' : '1',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 16:03:51',
+        'date_modified' : '2016-02-19 16:51:10',
+        'timelog_note' : 'call fiona - closing shortly - she will talk with team and we will reconvene in a few weeks. system currently disabled',
+        'timelog_start' : '2016-02-19 16:03:51',
+        'timelog_stop' : '2016-02-19 16:50:48',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '2817',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '46m'
+        },
+        {
+        'timelog_id' : '7518',
+        'subject_type' : 'action',
+        'project_id' : '566',
+        'action_id' : '10547',
+        'ticket_id' : '0',
+        'client_userid' : '192',
+        'owner_adminid' : '20',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 15:54:23',
+        'date_modified' : '2016-02-19 16:15:29',
+        'timelog_note' : '-- upload sql users and invoices\' -- 2.5 users table is different from 3.x user table view what must be changed',
+        'timelog_start' : '2016-02-19 15:54:00',
+        'timelog_stop' : '2016-02-19 16:13:28',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '1168',
+        'timelog_billable' : '1',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '19m'
+        },
+        {
+        'timelog_id' : '7517',
+        'subject_type' : 'ticket',
+        'project_id' : '0',
+        'action_id' : '0',
+        'ticket_id' : '6870',
+        'client_userid' : '683',
+        'owner_adminid' : '1',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 15:50:16',
+        'date_modified' : '2016-02-19 15:54:53',
+        'timelog_note' : 'call fieona',
+        'timelog_start' : '2016-02-19 15:50:16',
+        'timelog_stop' : '2016-02-19 15:54:53',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '277',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '4m'
+        },
+        {
+        'timelog_id' : '7516',
+        'subject_type' : 'action',
+        'project_id' : '569',
+        'action_id' : '10631',
+        'ticket_id' : '0',
+        'client_userid' : '1471',
+        'owner_adminid' : '3',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 15:31:14',
+        'date_modified' : '2016-02-19 17:10:56',
+        'timelog_note' : 'putting a more general two part CARF.',
+        'timelog_start' : '2016-02-19 15:31:14',
+        'timelog_stop' : '2016-02-19 17:10:56',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '5982',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '1h 39m'
+        },
+        {
+        'timelog_id' : '7515',
+        'subject_type' : 'action',
+        'project_id' : '544',
+        'action_id' : '10626',
+        'ticket_id' : '0',
+        'client_userid' : '1471',
+        'owner_adminid' : '3',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 15:18:06',
+        'date_modified' : '2016-02-19 15:29:45',
+        'timelog_note' : 'creating new service project',
+        'timelog_start' : '2016-02-19 15:18:06',
+        'timelog_stop' : '2016-02-19 15:29:45',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '699',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '11m'
+        },
+        {
+        'timelog_id' : '7514',
+        'subject_type' : 'action',
+        'project_id' : '544',
+        'action_id' : '10146',
+        'ticket_id' : '0',
+        'client_userid' : '1471',
+        'owner_adminid' : '3',
+        'owner_userid' : '',
+        'date_created' : '2016-02-19 15:11:10',
+        'date_modified' : '2016-02-19 15:17:23',
+        'timelog_note' : 'Working on standaradizing the sales conversion process.',
+        'timelog_start' : '2016-02-19 15:11:10',
+        'timelog_stop' : '2016-02-19 15:17:23',
+        'timelog_status' : 'complete',
+        'timelog_elapsed' : '373',
+        'timelog_billable' : '0',
+        'timelog_type' : 'Standard',
+        'invoice_id' : '0',
+        'duration_string' : '6m'
+        }
+    ];
+
+    this.bindActions(TimelogActions);
+
+    // this.current_timelogs = test_timelogs;
+  }
+
+  handleUpdateTimelogs (timelogs) {
+    this.timelogs = timelogs;
+  }
+
+}
+
+export default alt.createStore(TimelogStore, 'TimelogStore');
