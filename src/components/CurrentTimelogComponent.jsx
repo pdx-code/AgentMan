@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { Input } from 'react-bootstrap';
+import { Input, DropdownButton, MenuItem } from 'react-bootstrap';
 
 require('styles//CurrentTimelog.less');
 
@@ -33,10 +33,15 @@ class CurrentTimelogComponent extends React.Component {
         </div>
 
         <div className="currentTimelog__clock">
+          <DropdownButton title={this.props.timelog.timelgo_id} id="currentTimelog_menu--">
+            <MenuItem eventKey="1">Dropdown link</MenuItem>
+            <MenuItem eventKey="2">Dropdown link</MenuItem>
+          </DropdownButton>
           <button>
             <span>00:08:30</span>
             <i className="fa fa-fw fa-pause-circle"></i>
           </button>
+
         </div>
 
         <div className="currentTimelog__details">
