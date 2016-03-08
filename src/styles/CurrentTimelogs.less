@@ -14,33 +14,27 @@
 }
 
 .currentTimelog {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  background-color: #ddd;
-
+  border-bottom: 1px solid #ddd;
   overflow: hidden;
-
   margin-top: 3px;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 
   > * {
-    padding: 5px;
-    flex: 1 1 auto;
   }
 
   &__clockToggle {
-    flex: 0 0 auto;
     text-align: center;
   }
 
   &__block {
+    cursor: pointer;
   }
 
   &__clock {
-    max-width: 100px;
-    text-align: right;
+    text-align: center;
+    > div {
+      font-size: 11px;
+    }
   }
 
   &__details {

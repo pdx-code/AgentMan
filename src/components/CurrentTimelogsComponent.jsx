@@ -12,7 +12,7 @@ class CurrentTimelogsComponent extends React.Component {
   }
 
   render() {
-    var timelogNodes = this.props.current_timelogs.map(function(timelog, i){
+    var timelogNodes = this.props.current_timelogs.map(function(timelog){
       return (
         <CurrentTimelog timelog={timelog} />
       );
