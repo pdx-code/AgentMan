@@ -4,7 +4,7 @@
     marign: 0;
     padding: 0;
     max-height: 350px;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
 
   &__timelog {
@@ -38,14 +38,15 @@
   }
 
   &__details {
-    display: flex;
-    min-width: 100%;
     height: 0;
-    padding: 0;
     overflow: hidden;
 
     background-color: #333;
     color: #eee;
+
+    span.fa-stack > i:first-child {
+      color: #eee;
+    }
 
     &--active {
       height: 250px;
@@ -61,17 +62,12 @@
     }
 
     ul.detailList {
-      position: relative;
-      display: flex;
-      flex-direction: column;
       padding: 0;
       margin: 0;
       list-style: none;
-        > * {flex: 0 0 auto;}
       .detail {
-        textarea {
-          height: 100px;
-        }
+        display: inline-block;
+        margin-right: 10px;
         &--client{
           > span:first-child {
             font-weight: bold;
@@ -103,8 +99,13 @@
     }
   }
 
+  &__project {
+    color: #888;
+    font-style: italic;
+    font-size: 12px;
+  }
+
   &__name {
-    font-weight: bold;
   }
 
   &__parent {
@@ -113,4 +114,29 @@
     font-size: 10px;
   }
 
+}
+
+.form-group {
+  textarea {
+    min-height: 120px;
+  }
+}
+
+.detail {
+  &--log_owner ,
+  &--log_owner {
+    .form-group {
+      .form-control ,
+      .control-label {
+        display: inline-block;
+      }
+    }
+  }
+
+  &--log_owner {
+    
+  }
+  &--log_type {
+    
+  }
 }

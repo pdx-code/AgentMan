@@ -2,7 +2,7 @@
 
 import React from 'react';
 /* import { DropdownButton, MenuItem } from 'react-bootstrap'; */
-import { Input, Row, Col, Button } from 'react-bootstrap';
+import { Input, Row, Col,ButtonInput, Button } from 'react-bootstrap';
 var classNames = require('classnames');
 
 require('styles//CurrentTimelog.less');
@@ -29,28 +29,37 @@ class CurrentTimelogComponent extends React.Component {
       'currentTimelog__details--active': this.state.detail_state
     });
 
+    var action_type_icon = classNames({
+      'fa fa-fw fa-square-o': true,
+      'fa fa-fw fa-life-ring': false
+    });
+
     return (
       <li key={this.props.timelog.timelog_id} className="currentTimelog">
         <Row>
-        <Col xs={1} sm={1} md={1}>
-          <a className="currentTimelog__clockToggle">
+        <Col xs={2} sm={1} md={1} lg={1}>
+          <Button bsStyle="link" className="currentTimelog__clockToggle">
             <i className="fa fa-2x fa-fw fa-square-o"></i>
-          </a>
+          </Button>
         </Col>
 
 
-        <Col xs={8} sm={8} md={8}>
+        <Col xs={8} sm={9} md={9} lg={9}>
           <div className="currentTimelog__block" onClick={this.showDetails}>
             <div className="currentTimelog__name">
-              {this.props.timelog.timelog_id}  Lorem Ipsum Hearthley what where you thinking...
+              <i className={action_type_icon}></i>
+              {} - <a>This is the action name for the timelog</a>
             </div>
-            <div className="currentTimelog__parent">
-              Project Name here
+
+            <div className="currentTimelog__project">
+              <i className="fa fa-fw fa-flag"></i>
+              Parent Project
             </div>
           </div>
+
         </Col>
 
-        <Col xs={3} sm={3} md={3}>
+        <Col xs={2} sm={2} md={2}>
           <div className="currentTimelog__clock">
             <Button bsStyle="link">
               <i className="fa fa-2x fa-fw fa-clock-o"></i>
@@ -67,20 +76,23 @@ class CurrentTimelogComponent extends React.Component {
               <Input type="textarea" label="Log Note" placeholder="This is sample text" />
           </Col>
 
-          <Col xs={3} sm={3} md={3} lg={3}>
-            <li className="detail detail--log_owner">
-              <Input type="select" label="Owner" placeholder="Dezmond f">
-                <option value="select">Dezmond f</option>
-                <option value="other">...</option>
-              </Input>
-            </li>
+          <Col xs={7} sm={7} md={7} lg={7}>
+            <Row>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Input className="log_owner" type="select" label="Owner" placeholder="Dezmond f">
+                  <option value="select">Dezmond f</option>
+                  <option value="other">...</option>
+                </Input>
+              </Col>
 
-            <li className="detail detail--log_type">
-              <Input type="select" label="Type" placeholder="Standard">
-                <option value="standard">Standard</option>
-                <option value="other">...</option>
-              </Input>
-            </li>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Input className="log_type" type="select" label="Type" placeholder="Standard">
+                  <option value="standard">Standard</option>
+                  <option value="other">...</option>
+                </Input>
+              </Col>
+            </Row>
+
           </Col>
 
           <Col xs={4} sm={4} md={4} lg={4}>
@@ -109,7 +121,7 @@ class CurrentTimelogComponent extends React.Component {
           </Col>
 
           <Col xs={12} sm={12} md={12} lg={12}>
-            <Input type="submit" label="" value="Update"></Input>
+            <ButtonInput type="submit" label="" value="Update"></ButtonInput>
           </Col>
         </Row>
             </form>
