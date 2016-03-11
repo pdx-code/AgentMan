@@ -4,9 +4,10 @@ require('styles/less/bootstrap.less');
 import React from 'react';
 import TimelogStore from '../stores/TimelogStore';
 
+import { Button } from 'react-bootstrap';
 import CurrentTimelogs from './CurrentTimelogsComponent';
 import RecentTimelogs from './RecentTimelogsComponent';
-import { Panel } from 'react-bootstrap';
+import NextActions from './NextActionsComponent';
 
 class AppComponent extends React.Component {
   constructor(props) {
@@ -32,19 +33,30 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-      <Panel style={{'width': '500px', 'margin': '20px auto'}} className="index">
+      <div style={{'min-width': this.props.containerSize, 'margin': '20px auto'}} className="index">
+        <h3 className="sectionHeader sectionHeader__currentTimelogs ">
+          Current Timelogs
+          <Button bsStyle="link"><i className="fa fa-fw fa-cog"></i></Button>
+        </h3>
         <CurrentTimelogs current_timelogs={this.state.current_timelogs}/>
+
+        <h3 className="sectionHeader sectionHeader__recentTimelogs ">Recent Timelogs
+          <Button bsStyle="link"><i className="fa fa-fw fa-cog"></i></Button>
+        </h3>
         <RecentTimelogs timelogs={this.state.timelogs}/>
 
-        <div className="recentTimelogs"> Recent Timelog List </div>
-        <div className="nextActions"> Next Actions </div>
-      </Panel>
+        <h3 className="sectionHeader sectionHeader__nextActions">Next Actions
+          <Button bsStyle="link"><i className="fa fa-fw fa-cog"></i></Button>
+        </h3>
+        <NextActions actions={this.state.timelogs}/>
+      </div>
     );
   }
 
 }
 
 AppComponent.defaultProps = {
+  'containerSize': '600px'
 };
 
 export default AppComponent;

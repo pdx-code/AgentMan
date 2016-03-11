@@ -1,0 +1,53 @@
+.nextActions {
+  height: 310px;
+  position: relative;
+  overflow: hidden;
+  &__list {
+    marign: 0;
+    padding: 0;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+  .quickAdd {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+  padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  }
+}
+
+.nextAction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 20px 0 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+
+  &:first-child {
+    margin-top: 0;
+    .nextAction__details {
+      // height: auto;
+    }
+  }
+  &__block {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+  &__details {
+    width: 100%;
+    background: #333;
+    color: white;
+    height: 0;
+    overflow: hidden;
+    > * {
+      padding: 10px;
+    }
+  }
+  &__note {
+    width: 100%;
+  }
+}

@@ -57,19 +57,21 @@
     }
 
     textarea {
-      width: 55%;
+      // width: 55%;
     }
 
     ul.detailList {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding-top: 0;
+      padding: 0;
       margin: 0;
       list-style: none;
-      width: 45%;
         > * {flex: 0 0 auto;}
       .detail {
+        textarea {
+          height: 100px;
+        }
         &--client{
           > span:first-child {
             font-weight: bold;

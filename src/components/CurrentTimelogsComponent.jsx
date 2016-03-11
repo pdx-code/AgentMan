@@ -8,13 +8,12 @@ require('styles/CurrentTimelogs.less');
 class CurrentTimelogsComponent extends React.Component {
   constructor(props) {
     super(props);
-    /* this.showDetails = this.showDetails.bind(this); */
   }
 
   render() {
-    var timelogNodes = this.props.current_timelogs.map(function(timelog){
+    var timelogNodes = this.props.current_timelogs.map(function(timelog, i){
       return (
-        <CurrentTimelog timelog={timelog} />
+        <CurrentTimelog timelog={timelog} key={i} />
       );
     });
     return (
