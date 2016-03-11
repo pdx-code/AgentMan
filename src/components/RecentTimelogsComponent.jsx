@@ -47,11 +47,13 @@ class RecentTimelogsComponent extends React.Component {
           </div>
 
           <div className={detailsClass}>
-            <Row>
-            <Col xs={12} sm={12} sm={12}>
               <form className={detailsClass}>
+            <Row>
+              <Col xs={6} sm={6} md={6} lg={6}>
                 <Input type="textarea" label="Text Area" placeholder="This is sample text" />
+              </Col>
 
+              <Col xs={6} sm={6} md={6} lg={6}>
                 <ul className="detailList">
 
                   <li className="detail detail--client">
@@ -69,15 +71,17 @@ class RecentTimelogsComponent extends React.Component {
                   </li>
                   <li className="detail detail--tp_link">
                     <a href="" className="">
-                      <i className="fa fa-fw fa-link"></i>
+                      <i className="fa fa-fw fa-link"></i> Timelog in Teampro
                     </a>
                   </li>
                 </ul>
+              </Col>
 
+              <Col xs={12} xs={12} sm={12} sm={12}>
                 <Input type="submit" label="Update" value="Update"></Input>
-              </form>
-            </Col>
+              </Col>
             </Row>
+              </form>
           </div>
 
         </li>

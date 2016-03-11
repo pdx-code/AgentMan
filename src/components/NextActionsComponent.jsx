@@ -2,7 +2,7 @@
 
 import React from 'react';
 import QuickAdd from './QuickAddComponent';
-import { Collapse, Input, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Input, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 
 require('styles//NextActions.less');
 
